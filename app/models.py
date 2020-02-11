@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-from . import db
+from . import db, login_manager
 
 class User(UserMixin, db.Model):
     """
@@ -77,3 +77,7 @@ class Comment(db.Model):
 
     def get_comments(self, pitch_id):
         return Comment.query.filter_by(pitch_id = pitch_id).all()
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
