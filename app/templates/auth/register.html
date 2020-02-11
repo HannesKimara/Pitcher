@@ -2,6 +2,9 @@
 
 {% block content %}
     <div class = "container">
+        <div class = "row">
+        <div class = "col-md-3"></div>
+        <div class = "col-md-6">
         <form action = "/authenticate/register" method="POST" autocomplete="off">
             <div class = "form-group">
                 {{ form.csrf_token(type_ = "hidden")}}
@@ -45,7 +48,10 @@
             <div class = "form-group">
                 {{ form.submit(class_="btn btn-light")}}
             </div>
-            
         </form>
+        <p> Already have an account? <a href="{{url_for('auth.login')}}">Sign up here</a></p>
+        </div>
+        <div class = "col-md-3"></div>
+        </div>
     </div>
 {% endblock %}
