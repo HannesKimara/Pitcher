@@ -1,4 +1,4 @@
-import secrets
+import secrets, os
 
 class Config:
     '''
@@ -7,6 +7,13 @@ class Config:
 
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:admin@localhost/pitch'
     SECRET_KEY = secrets.token_hex(16)
+
+    #  email configurations
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
 class ProdConfig(Config):
     '''

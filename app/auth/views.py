@@ -5,6 +5,7 @@ from . import auth
 from .. import db
 from .forms import RegistrationForm, LoginForm
 from ..models import User
+from ..email import mail_message
 
 @auth.route("/register", methods = ['GET', 'POST'])
 def register():
@@ -15,7 +16,11 @@ def register():
         db.session.commit()
         return redirect(url_for('auth.login'))
 
-    return render_template('auth/register.html', form = form)
+        mail_message("Welcome to watchlist","email/welcome_user",user.email, user=user)
+
+
+    title = "Pitch | Login"
+    return render_template('auth/register.html', form = form, title = title)
 
 @auth.route('/login',methods=['GET','POST'])
 def login():
@@ -28,7 +33,8 @@ def login():
 
         flash('Invalid username or Password')
 
-    return render_template('auth/login.html', form = login_form)
+    title = "Pitch | Login"
+    return render_template('auth/login.html', form = login_form, title = title)
 
 @auth.route('/logout')
 @login_required
