@@ -1,8 +1,12 @@
+import secrets
+
 class Config:
     '''
     General configuration parent class
     '''
-    pass
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:admin@localhost/pitch'
+    SECRET_KEY = secrets.token_hex(16)
 
 class ProdConfig(Config):
     '''
@@ -21,6 +25,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
     DEBUG = True
 
 
@@ -31,7 +36,7 @@ class TestConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:admin@localhost/pitch_test'
 
 config_options = {
     'development':DevConfig,
