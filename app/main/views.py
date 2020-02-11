@@ -3,8 +3,7 @@ from flask_login import login_required, current_user
 
 from . import main
 from .forms import PitchForm
-from ..models import User
-from ..models import Pitch
+from ..models import User, Pitch
 
 @main.route("/")
 def index():
@@ -30,3 +29,10 @@ def newpitch():
         print(new_pitch.save_pitch())
 
     return render_template('add_pitch.html', form = form)
+
+@main.route('/pitch/category/<pitch_category>')
+def by_category(pitch_category):
+    category_pitches = Pitch.query.filter_by(category = pitch_category).all()
+    title = f"Pitch | {pitch_category}"
+
+    return render_template('pitches.html', pitches = category_pitches, title = title)
