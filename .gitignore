@@ -5,3 +5,7 @@ __pycache__/
 # Editor Files
 .vscode/
 
+# Environment startup files
+start.sh
+start.bat
+start.ps1
