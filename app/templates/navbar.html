@@ -5,24 +5,24 @@
     </button>
     <div class = "collapse navbar-collapse" id = "na-nav">
         <ul class = "navbar-nav ml-auto">
-            <li class = "nav-item"><a href = "/" class = "nav-link">HOME</a></li>
-            <li class = "nav-item"><a href = "/pitch/category/General" class = "nav-link">GENERAL</a></li>
-            <li class = "nav-item"><a href = "/pitch/category/Promotion" class = "nav-link">PROMOTION</a></li>
-            <li class = "nav-item"><a href = "/pitch/category/Interview" class = "nav-link">INTERVIEW</a></li>
-            <li class = "nav-item"><a href = "/pitch/category/Product" class = "nav-link">PRODUCT</a></li>
+            <li class = "nav-item"><a href = "/" class = "nav-link">Home</a></li>
+            <li class = "nav-item"><a href = "/pitch/category/General" class = "nav-link">General</a></li>
+            <li class = "nav-item"><a href = "/pitch/category/Promotion" class = "nav-link">Promotion</a></li>
+            <li class = "nav-item"><a href = "/pitch/category/Interview" class = "nav-link">Interview</a></li>
+            <li class = "nav-item"><a href = "/pitch/category/Product" class = "nav-link">Product</a></li>
         </ul>
             {% if current_user.is_authenticated %}
-            <div class="dropdown show">
+            <div class="dropdown show pl-3">
                 <a class="dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 {{ current_user.username }}
+                    <i class="fas fa-user-circle"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu dropdown-menu-right mt-3" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="{{url_for('main.profile', username = current_user.username)}}">Profile</a>
                   <a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a>
                 </div>
               </div>
             {% else %}
-                <a href="{{url_for('auth.login')}}">Sign in</a>
+                <a class = "pl-3" href="{{url_for('auth.login')}}">Sign in</a>
             {%endif%}
     </div>
 </nav>

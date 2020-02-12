@@ -24,7 +24,7 @@
                     <p class = "error">{{form.errors.username[0]}}</p>
                 </div>
                 {% endif %}
-                {{form.username.label}}
+                {{ form.username.label }}
                 {{ form.username(class_="form-control")}}
             </div>
             <div class = "form-group">
@@ -33,7 +33,7 @@
                     <p class = "error">{{form.errors.password[0]}}</p>
                 </div>
                 {% endif %}
-                {{form.password.label}}
+                {{ form.password.label }}
                 {{ form.password(class_="form-control")}}
             </div>
             <div class = "form-group">
@@ -49,7 +49,7 @@
                 {{ form.submit(class_="btn btn-light")}}
             </div>
         </form>
-        <p> Already have an account? <a href="{{url_for('auth.login')}}">Sign up here</a></p>
+        <p> Already have an account? <a href="{{url_for('auth.login')}}">Sign in</a></p>
         </div>
         <div class = "col-md-3"></div>
         </div>

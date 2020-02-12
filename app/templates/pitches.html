@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class = "container-fluid">
-                {% if pitches %}
-                
-                    {% for pitch in pitches%}
-                        <div class = "card">
-                            <div class = "container-fluid p-3">
-                                <p>{{pitch.content}}</p>
-                                <p>By {{pitch.user.username}}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>There were no pitches</p>
-                {% endif %}
+        {% if pitches %}
+        
+            {% for pitch in pitches%}
+                <div class = "card">
+                    <div class = "container-fluid p-3">
+                        <p><a href = "/pitch/view/{{pitch.pitch_id}}">Go There</a></p>
+                        <p>{{pitch.content}}</p>
+                        <p>By {{pitch.user.username}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>There were no pitches</p>
+        {% endif %}
             
     </div>
 {% endblock content %}

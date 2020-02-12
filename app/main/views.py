@@ -2,8 +2,8 @@ from flask import render_template, abort
 from flask_login import login_required, current_user
 
 from . import main
-from .forms import PitchForm
-from ..models import User, Pitch
+from .forms import PitchForm, CommentForm
+from ..models import User, Pitch, Comment
 
 @main.route("/")
 def index():
@@ -36,3 +36,24 @@ def by_category(pitch_category):
     title = f"Pitch | {pitch_category}"
 
     return render_template('pitches.html', pitches = category_pitches, title = title)
+
+@main.route('/pitch/view/<pitch_id>')
+def view_pitch(pitch_id):
+    curr_pitch = Pitch.query.filter_by(pitch_id = pitch_id).first()
+    comments = Comment.query.filter_by(pitch_id = pitch_id).all()
+
+    return render_template("pitch.html", pitch = curr_pitch, comments = comments)
+
+@main.route('/comment/new/<pitch_id>', methods = ['GET', 'POST'])
+@login_required
+def comment(pitch_id):
+    form = CommentForm()
+
+    if form.validate_on_submit():
+        curr_pitch = Pitch.query.filter_by(pitch_id = pitch_id).first()
+        new_comment = Comment(content= form.content.data, pitch = curr_pitch, user_id = current_user.user_id)
+        save_comment_id = new_comment.save_comment()
+
+    return render_template("comment.html", form = form, pitch_id = pitch_id)
+
+    
