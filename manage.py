@@ -13,7 +13,7 @@ manager.add_command('db', MigrateCommand)
 
 @manager.shell
 def make_shell():
-    return dict(db = db, User = User, Comment = Comment, Pitch = Pitch)
+    return dict(db = db, User = User, Comment = Comment, Pitch = Pitch, app=app)
 
 @manager.command
 def test():

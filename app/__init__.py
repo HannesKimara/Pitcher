@@ -22,8 +22,8 @@ def create_app(config_name):
 
     # Initializing extensions
     db.init_app(app)
-    mail.init_app(app)
     login_manager.init_app(app)
+    mail.init_app(app)
 
     # Registering Blueprints
     from .main import main as main_blueprint
