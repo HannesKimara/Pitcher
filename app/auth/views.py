@@ -17,7 +17,6 @@ def register():
         mail_message("Welcome to watchlist","email/welcome_user",user.email, user=user)
         return redirect(url_for('auth.login'))
 
-
     title = "Pitch | Login"
     return render_template('auth/register.html', form = form, title = title)
 
@@ -28,7 +27,6 @@ def login():
         user = User.query.filter_by(email = login_form.email.data).first()
         if user is not None and user.verify_password(login_form.password.data):
             login_user(user, login_form.remember.data)
-            print(login_form.remember.data)
             
             return redirect(request.args.get('next') or url_for('main.index'))
 
