@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/HannesKimara/Pitcher/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/HannesKimara/Pitcher/blob/master/LICENSE) [![codebeat badge](https://codebeat.co/badges/5ba6643b-36a1-40b6-a7fa-872e459932fb)](https://codebeat.co/projects/github-com-hanneskimara-pitcher-master)
 
 # Pitch App
 Create a one minute pitch on various categories like interview and promotion. Get feedback on your pitch on how to improve.
