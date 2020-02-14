@@ -1,4 +1,44 @@
-#pa-jumbo{
+.pa-jumbo-container{
     background-color: antiquewhite;
+    position: relative;
     height: 60vh;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.pa-navbar{
+	background: #FFFFFF!important;
+	padding: 1rem 1rem 1rem 1rem;
+	position: sticky;
+	z-index: 5;
+	width: 100%;
+}
+
+.pa-vcenter{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#pa-no-pitch{
+    display: table;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+.na-fof{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 768px){
+    .pa-navbar{
+      z-index: 5;
+    }
 }

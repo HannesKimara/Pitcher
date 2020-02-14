@@ -1,6 +1,6 @@
 <nav class = "navbar navbar-expand-md navbar-light pa-navbar">
     <a class="navbar-brand" href="/">Pitch</a>
-    <button type = "button" class = "navbar-toggler ml-auto" data-toggle = "collapse" data-target = "#na-nav" style = "outline:none;border:none">
+    <button type = "button" class = "navbar-toggler ml-auto pa-nav-toggler" data-toggle = "collapse" data-target = "#na-nav" style = "outline:none;border:none">
         <span class = ""><i class="fas fa-bars"></i></span>
     </button>
     <div class = "collapse navbar-collapse" id = "na-nav">
@@ -11,18 +11,18 @@
             <li class = "nav-item"><a href = "/pitch/category/Interview" class = "nav-link">Interview</a></li>
             <li class = "nav-item"><a href = "/pitch/category/Product" class = "nav-link">Product</a></li>
         </ul>
-            {% if current_user.is_authenticated %}
-            <div class="dropdown show pl-3">
+    </div>
+        {% if current_user.is_authenticated %}
+            <div class="dropdown show">
                 <a class="dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-circle"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-3" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="{{url_for('main.profile', username = current_user.username)}}">Profile</a>
-                  <a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a>
+                    <a class="dropdown-item" href="{{url_for('main.profile', username = current_user.username)}}">Profile</a>
+                    <a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a>
                 </div>
-              </div>
+            </div>
             {% else %}
-                <a class = "pl-3" href="{{url_for('auth.login')}}">Sign in</a>
-            {%endif%}
-    </div>
+                <a href="{{url_for('auth.login')}}">Sign in</a>
+        {%endif%}
 </nav>

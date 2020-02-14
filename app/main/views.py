@@ -13,12 +13,13 @@ def index():
 @main.route('/profile/<username>')
 def profile(username):
     user = User.query.filter_by(username = username).first()
+    pitches = Pitch.query.filter_by(user = user).all()
 
     if user is None:
         abort(404)
 
     title = "Pitch | Profile"
-    return render_template("profile.html", user = user, title = title)
+    return render_template("profile.html", user = user, title = title, pitches = pitches)
 
 @main.route('/pitch/new', methods = ['GET', 'POST'])
 @login_required

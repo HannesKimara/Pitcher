@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id = "pa-jumbo">
-        <p>Pitch Works</p>
+    <div class = "pa-jumbo-container align-middle" style = "height: 60vh;">
+        <div class = "container align-middle vertical-center">
+            <h3>Pitch App.</h3>
+            <p>Make one minute pitches and get feedback</p>
+            <a href = '{{url_for("main.newpitch")}}' class = "btn btn-light">TRY IT NOW</a>
+        </div>
     </div>
 {% endblock content %}
