@@ -18,11 +18,14 @@
                 </div>
                 <br>
             {% endfor %}
+            <div class = "container text-center">
+                <a href = '{{url_for("main.newpitch")}}' class = "btn btn-dark">POST A NEW PITCH</a>
+            </div>
         {% else %}
         <div id = "pa-no-pitch">
             <div class = "na-fof">
                 <p>There were no pitches</p>
-                <a href = '{{url_for("main.newpitch")}}' class = "btn btn-light">POST A PITCH</a>
+                <a href = '{{url_for("main.newpitch")}}' class = "btn btn-dark">POST A PITCH</a>
             </div>
         </div>
         {% endif %}

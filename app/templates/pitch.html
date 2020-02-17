@@ -7,9 +7,11 @@
             <br>
             <div class = "card">
                 <div class = "container-fluid p-3">
-                    <p>Pitch</p>
-                    <p>{{ pitch.content }}</p>
-                    <p>By {{ pitch.user.username }}</p>
+                    <h4>Pitch</h4>
+                    <blockquote class="blockquote pt-3">
+                        <p class="mb-0">{{ pitch.content }}</p>
+                        <footer class="blockquote-footer">{{ pitch.user.username }}</cite></footer>
+                    </blockquote>
                 </div>
             </div>
             <br>
